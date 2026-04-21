@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Role</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .card {
+        background: #fff;
+        padding: 36px 42px;
+        border-radius: 18px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        text-align: center;
+        width: 420px;
+    }
+
+    h2 {
+        margin: 0 0 6px 0;
+        font-weight: 700;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 28px;
+        font-size: 15px;
+    }
+
+    .role-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 20px;
+        margin: 14px 0;
+        font-size: 18px;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        box-sizing: border-box;
+    }
+
+    .owner {
+        background: #e74c3c;
+    }
+
+    .finder {
+        background: #6ccf84;
+    }
+
+    .role-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+    }
+</style>
+
+</head>
+<body>
+
+<div class="card">
+    <h2>Welcome {{ username }} 👋</h2>
+    <p>Please select your role</p>
+
+    <form method="POST">
+        <button class="role-btn owner" type="submit" name="role" value="owner">
+            🔍 I lost an item
+        </button>
+    </form>
+
+    <a href="/finder" class="role-btn finder">
+        📦 I found an item
+    </a>
+</div>
+
+</body>
+</html>

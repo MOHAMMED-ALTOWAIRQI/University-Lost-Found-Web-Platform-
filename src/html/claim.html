@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claim Item</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Claim: {{ item.item_name }}</h2>
+    <p><b>Category:</b> {{ item.category }}</p>
+    <p><b>Location:</b> {{ item.location }}</p>
+
+    <form method="POST">
+        <label>
+            Answer the secret question (describe proof of ownership):
+        </label>
+        <textarea name="secret_answer" required></textarea>
+
+        <button type="submit">Submit Claim</button>
+    </form>
+</div>
+
+</body>
+</html>

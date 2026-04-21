@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 30px 0;
+        }
+
+        .chat-container {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        .chat-header {
+            padding: 18px;
+            background: #2ecc71;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f9fafb;
+        }
+
+        .message {
+            max-width: 70%;
+            margin-bottom: 14px;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .me {
+            background: #2563eb;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .other {
+            background: #e5e7eb;
+            color: #111827;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message img {
+            max-width: 220px;
+            border-radius: 10px;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .chat-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-footer input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        .chat-footer input[type="file"] {
+            font-size: 12px;
+        }
+
+        .chat-footer button {
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: none;
+            background: #2ecc71;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chat-footer button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        💬 Chat
+    </div>
+
+    <div class="chat-body" id="chatBody">
+        {% for msg in messages %}
+            <div class="message {% if msg.sender_id == session['user_id'] %}me{% else %}other{% endif %}">
+
+                {% if msg.message %}
+                    <div>{{ msg.message }}</div>
+                {% endif %}
+
+                {% if msg.image_path %}
+                    <img src="{{ url_for('static', filename='uploads/' + msg.image_path) }}">
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="chat-footer">
+        <input type="text" name="message" placeholder="Type a message...">
+
+        <input type="file" name="image" accept="image/*">
+
+        <button type="submit">Send</button>
+    </form>
+<form action="{{ url_for('close_chat', chat_id=chat_id) }}" method="post"
+      onsubmit="return confirm('Are you sure you want to complete this agreement?');">
+
+    <button type="submit" class="btn btn-danger">
+        Complete Agreement & Remove Item
+    </button>
+</form>
+
+</div>
+
+<script>
+    // Auto scroll to bottom
+    const chatBody = document.getElementById("chatBody");
+    chatBody.scrollTop = chatBody.scrollHeight;
+</script>
+
+</body>
+</html>

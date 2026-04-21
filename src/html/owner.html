@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        a {
+            display: block;
+            margin: 15px 0;
+            padding: 12px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .logout {
+            background-color: #dc3545;
+        }
+
+        .logout:hover {
+            background-color: #b02a37;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Owner Dashboard 🔍</h2>
+    <p>You lost an item. What would you like to do?</p>
+
+    <a href="/add_item?type=lost">Add Lost Item</a>
+    <a href="/items">View Items</a>
+
+    <a href="{{ url_for('my_chats') }}">My Chats 💬</a>
+
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+</body>
+</html>

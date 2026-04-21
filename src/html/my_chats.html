@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chats</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .chat {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>💬 My Chats</h2>
+
+{% if chats %}
+    {% for chat in chats %}
+        <div class="chat">
+            <p><strong>Item:</strong> {{ chat.item_name }}</p>
+            <p><strong>With:</strong> {{ chat.other_user }}</p>
+            <a href="/chat/{{ chat.chat_id }}">Open Chat</a>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No chats yet.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finder</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #2ecc71;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Finder Dashboard</h2>
+
+    <a href="/add_item?type=found">Add Found Item</a>
+    <a href="/finder/claims">View Claims</a>
+    <a href="/items">View Items</a>
+    <a href="/logout" style="background:#e74c3c">Logout</a>
+</div>
+
+</body>
+</html>
